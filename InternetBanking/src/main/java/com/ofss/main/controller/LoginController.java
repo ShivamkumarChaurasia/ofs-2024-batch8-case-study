@@ -32,6 +32,17 @@ public class LoginController {
      	return login;
 	}
 	
+	@GetMapping(path = "signin")
+	public String signIn() {
+		return "";
+	}
+	
+	@GetMapping(path = "signup")
+	public String signUp() {
+		return "";
+	}
+	
+	
 	
 	
 }

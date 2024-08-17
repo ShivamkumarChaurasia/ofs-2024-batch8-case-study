@@ -34,6 +34,7 @@ public class LoginController {
 	
 	@GetMapping(path = "signin")
 	public String signIn() {
+		
 		return "";
 	}
 	
@@ -41,8 +42,5 @@ public class LoginController {
 	public String signUp() {
 		return "";
 	}
-	
-	
-	
 	
 }

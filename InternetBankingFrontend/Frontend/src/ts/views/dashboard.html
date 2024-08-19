@@ -1,0 +1,24 @@
+<!--
+ Copyright (c) 2014, 2024, Oracle and/or its affiliates.
+ Licensed under The Universal Permissive License (UPL), Version 1.0
+ as shown at https://oss.oracle.com/licenses/upl/
+ -->
+<div class="oj-hybrid-padding">
+  <h2>Login</h2>
+  <div>
+    <oj-c-form-layout columns="1">
+      <oj-c-input-text label-hint="Customer ID" value="{{customerId}}" on-value-changed="[[onkey]]"></oj-c-input-text>
+      <oj-c-input-password label-hint="Password" value="{{password}}" on-value-changed="[[onkey]]"></oj-c-input-password>
+      <div id="progressBarWrapper">
+        <oj-c-progress-bar
+          id="progressBar"
+          value="{{indeterminate().length > 0 ? -1 : progressValue}}"></oj-c-progress-bar>
+        <br />
+      </div>
+    </oj-c-form-layout>
+    <div data-bind="text: message"></div>
+    <button data-bind="click: () => updateMessage('New message!')">Update Message</button>
+    <oj-c-button id="button2" label="Submit" on-oj-action="[[handleClick]]"></oj-c-button><br>
+    <div id="welcomeMessage"></div>
+  </div>
+</div>

@@ -10,4 +10,6 @@ import com.ofss.main.domain.Customer;
 public interface CustomerService {
 	List<Customer> getAllCustomers();
 	Customer getCustomerByCustomerId(int Id);
+//	Cus
+	
 }

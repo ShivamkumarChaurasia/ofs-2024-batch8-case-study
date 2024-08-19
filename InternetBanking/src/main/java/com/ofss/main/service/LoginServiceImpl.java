@@ -15,6 +15,8 @@ public class LoginServiceImpl implements LoginService{
 	
 	@Autowired
 	LoginRepository loginRepository;
+	@Autowired 
+	CustomerService customerService;
 	@Override
 	public List<Login> getAllLogins() {
 		return (List<Login>) loginRepository.findAll();
@@ -25,5 +27,39 @@ public class LoginServiceImpl implements LoginService{
 		Optional<Login> login = loginRepository.findById(Id);
 		return login.orElse(null);
 	}
+
+	@Override
+	public Login loginByIdAndPassword(int id, String password) {
+		Optional<Login> llogin = loginRepository.findById(id);
+	    Login login = llogin.orElse(null);
+	    Login temp = new Login(0);
+	    Login retry = new Login(1);
+		if(login != null && login.getCustomerId() == id && login.getUserPassword().equals(password)) {
+			//set tries = 0
+			//set active
+			login.setTries(0); 
+			login.setIsLocked(0);
+			login.setStatus("Active");
+ 			loginRepository.save(login);
+			return login;
+		}
+		if(login.getTries() >= 3) {
+			//Block the account 
+			login.setIsLocked(1);
+			login.setStatus("Inactive");
+			loginRepository.save(login);
+			return temp;
+		}
+		login.setTries(login.getTries() + 1);
+		loginRepository.save(login);
+		return retry;
+	}
+	
+	
+	
+//	@Override
+//	public Login loginByIdAndPassword(String id, String password) {
+//		Login login = loginRepository.findById(id);
+//	}
 
 }

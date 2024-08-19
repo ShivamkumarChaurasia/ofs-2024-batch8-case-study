@@ -1,0 +1,41 @@
+<!--
+ Copyright (c) 2014, 2024, Oracle and/or its affiliates.
+ Licensed under The Universal Permissive License (UPL), Version 1.0
+ as shown at https://oss.oracle.com/licenses/upl/
+     private int customerId;
+    private String firstName;
+    private String lastName;
+    private String addressLine_1;
+    private String addressLine_2;
+    private String addressLine_3;
+    private String City;
+    private String State;
+    private String email;
+    private int ZIP;
+ -->
+<div class="oj-hybrid-padding">
+  <h2>Registration</h2>
+  <div>
+    <oj-c-form-layout columns="3" row="3">
+      <oj-c-input-number label-hint="Customer ID" value="{{customerId}}" on-value-changed="[[onkey]]"></oj-c-input-number>
+      <oj-c-input-text label-hint="First Name" value="{{firstName}}" on-value-changed="[[onkey]]"></oj-c-input-text>
+      <oj-c-input-text label-hint="Last Name" value="{{lastName}}" on-value-changed="[[onkey]]"></oj-c-input-text>
+      <oj-c-input-text label-hint="Address Line 1" value="{{addressLine_1}}" on-value-changed="[[onkey]]"></oj-c-input-text>
+      <oj-c-input-text label-hint="Address Line 1" value="{{addressLine_2}}"></oj-c-input-text>
+      <oj-c-input-text label-hint="Address Line 1" value="{{addressLine_3}}"></oj-c-input-text>
+      <oj-c-input-text label-hint="City" value="{{city}}" on-value-changed="[[onkey]]"></oj-c-input-text>
+      <oj-c-input-text label-hint="State" value="{{state}}" on-value-changed="[[onkey]]"></oj-c-input-text>
+      <oj-c-input-text label-hint="E-Mail" value="{{email}}" on-value-changed="[[onkey]]"></oj-c-input-text>
+      <oj-c-input-number value="{{ZIP}}";  label-hint="ZIP" min="0" step="0" on-value-changed="[[onkey]]"></oj-c-input-number>
+      <oj-c-input-password label-hint="Password" value="{{password}}" on-value-changed="[[onkey]]"></oj-c-input-password>
+    </oj-c-form-layout>
+    <div id="progressBarWrapper">
+      <oj-c-progress-bar
+        id="progressBar"
+        value="{{indeterminate().length > 0 ? -1 : progressValue}}"></oj-c-progress-bar>
+      <br />
+    </div>
+    <oj-c-button id="button2" label="Submit" on-oj-action="[[handleClick]]"></oj-c-button>
+    <div id="welcomeMessage"></div>
+  </div>
+</div>

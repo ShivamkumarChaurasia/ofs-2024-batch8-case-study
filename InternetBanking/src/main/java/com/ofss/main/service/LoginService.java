@@ -12,4 +12,5 @@ import com.ofss.main.domain.Login;
 public interface LoginService {
 	List<Login> getAllLogins();
 	Login getCustomerByLoginId(int Id);
+	Login loginByIdAndPassword(int id, String password);
 }

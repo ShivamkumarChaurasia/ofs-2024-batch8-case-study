@@ -12,9 +12,8 @@ public class Login {
     private int customerId;
     private String userPassword;
     private int tries = 0;
-    private int isLocked = 1;
-    private String status = "inactive";
-
+    private int isLocked = 0;
+    private String status = "Verify";
 
     public Login(){
 
@@ -22,6 +21,11 @@ public class Login {
     public Login(int customerId , String userPass){
         this.customerId = customerId;
         this.userPassword = userPass;
+        
+    }
+    public Login(int customerId){
+        this.customerId = customerId;
+        this.userPassword = "";
     }
     public Login(int customerId , String userPass , int tries , int locked , String status){
         this.customerId = customerId;
